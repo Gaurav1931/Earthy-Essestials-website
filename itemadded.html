@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Added Successfully!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <style>
+
+        :root {
+            --primary: #7ca982;
+            --hover: #5d8668;
+            --light: #fdfdfb;
+            --text: #3d3b32;
+            --accent: #cfc1a3;
+            --success-green: #4CAF50; 
+            --success-light: #e8f5e9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--success-light) 0%, var(--light) 100%); 
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; 
+            position: relative;
+        }
+
+        .success-card {
+            background-color: white;
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: fadeInScale 0.8s ease-out forwards; 
+            position: relative;
+            z-index: 10; 
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .success-icon circle {
+            stroke-width: 4;
+            stroke: var(--success-green);
+            fill: none;
+            stroke-dasharray: 283; 
+            stroke-dashoffset: 283;
+            animation: drawCircle 1s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .success-icon polyline {
+            stroke-width: 4;
+            stroke: var(--success-green);
+            fill: none;
+            stroke-dasharray: 100; 
+            stroke-dashoffset: 100;
+            animation: drawCheck 0.8s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards; 
+        }
+
+        @keyframes drawCircle {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--success-green);
+            margin-bottom: 15px;
+            animation: slideInUp 0.7s ease-out 0.8s forwards; 
+            opacity: 0;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            animation: slideInUp 0.7s ease-out 1s forwards; 
+            opacity: 0;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tap-to-continue {
+            font-size: 0.95rem;
+            color: black;
+            margin-bottom: 10px; 
+            opacity: 0; 
+            transition: opacity 0.5s ease-out; 
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; 
+            margin-top: 0; 
+            animation: fadeIn 0.7s ease-out 1.2s forwards; 
+            opacity: 0;
+        }
+
+        .action-button { 
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none; 
+            display: inline-block; 
+        }
+
+        .action-button:hover {
+            background-color: var(--hover);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .action-button:hover::after {
+            left: 0;
+        }
+
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 5; 
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary); 
+            border-radius: 50%;
+            opacity: 0;
+            animation: fall 3s ease-in forwards;
+        }
+
+        .confetti:nth-child(2n) { background-color: var(--accent); }
+        .confetti:nth-child(3n) { background-color: var(--success-green); }
+        .confetti:nth-child(4n) { background-color: #f06292; /* Pink */ }
+        .confetti:nth-child(5n) { background-color: #ffb74d; /* Orange */ }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotateZ(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotateZ(720deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .success-card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .action-button {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+
+            .success-icon {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <div class="success-card">
+
+        <svg class="success-icon" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45"></circle>
+            <polyline points="30,50 45,65 70,40"></polyline>
+        </svg>
+
+        <h1>Item Added Successfully!</h1>
+        <p>Your product has been successfully listed and is now visible to potential buyers. Thank you for contributing to Earthy Essentials!</p>
+
+        <div class="tap-to-continue" id="tapToContinueMessage">Tap to continue</div>
+        <div class="button-group">
+            <button class="action-button" onclick="window.location.href='seller.html'">Go Back to Seller Page</button>
+            <button class="action-button" onclick="window.location.href='seller.html'">Back to Website</button>
+        </div>
+    </div>
+
+    <script>
+
+        const confettiContainer = document.getElementById('confetti-container');
+        const colors = ['var(--primary)', 'var(--accent)', 'var(--success-green)', '#f06292', '#ffb74d']; 
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw'; 
+            confetti.style.animationDuration = (Math.random() * 2 + 3) + 's'; 
+            confetti.style.animationDelay = (Math.random() * 0.5) + 's'; 
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; 
+            confetti.style.transform = `scale(${Math.random() * 0.8 + 0.2})`; 
+
+            confettiContainer.appendChild(confetti);
+
+            confetti.addEventListener('animationend', () => {
+                confetti.remove();
+            });
+        }
+
+        function generateConfettiBurst() {
+            for (let i = 0; i < 50; i++) { 
+                setTimeout(createConfetti, i * 20); 
+            }
+        }
+
+        function showTapToContinue() {
+            const tapToContinueMessage = document.getElementById('tapToContinueMessage');
+            const delay = 1700 + 800; 
+
+            setTimeout(() => {
+                tapToContinueMessage.style.opacity = '1'; 
+            }, delay);
+        }
+
+        window.onload = function() {
+            generateConfettiBurst();
+            showTapToContinue();
+        };
+    </script>
+</body>
+</html>

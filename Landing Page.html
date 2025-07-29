@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Earthy Essentials</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      color: #2f2f2f;
+      text-align: center;
+      min-height: 100vh;
+      background-color: #f8f6f0;
+      overflow-x: hidden;
+      position: relative;
+    }
+.glass-box {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 30px 40px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  animation: fadeGlass 1.2s ease forwards;
+  margin-top: 40px;
+}
+
+@keyframes fadeGlass {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('background rural.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    img {
+      max-width: 180px;
+      margin-top: 30px;
+      animation: fadeDown 1s ease-in-out;
+    }
+
+    i {
+      font-size: 1.2em;
+      color: #6e5f4e;
+      display: block;
+      margin-bottom: 40px;
+      font-style: italic;
+      animation: fadeUp 1s ease-in-out 0.4s backwards;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      margin: 30px 0 10px;
+      color: #3d3327;
+      animation: fadeUp 1s ease-in-out 0.6s backwards;
+    }
+
+    a {
+      display: inline-block;
+      margin: 16px 20px;
+      padding: 16px 34px;
+      font-size: 1.1em;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      background-color: #7ca982;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      animation: fadeInZoom 0.9s ease-in-out 0.8s backwards;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    a:hover {
+      background-color: #5d8668;
+      transform: scale(1.06);
+    }
+
+    a:hover::after {
+      left: 0;
+    }
+
+    .butterfly {
+      position: fixed;
+      width: 40px;
+      opacity: 0.5;
+      z-index: 0;
+      animation: floatButterfly 20s linear infinite;
+    }
+
+    .butterfly:nth-child(1) {
+      top: 20%;
+      left: -60px;
+      animation-delay: 0s;
+    }
+
+    .butterfly:nth-child(2) {
+      top: 50%;
+      left: -80px;
+      animation-delay: 6s;
+    }
+
+    .butterfly:nth-child(3) {
+      top: 75%;
+      left: -100px;
+      animation-delay: 3s;
+    }
+
+    @keyframes floatButterfly {
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+      50% {
+        transform: translateX(60vw) translateY(-20px) rotate(15deg);
+      }
+      100% {
+        transform: translateX(100vw) rotate(0deg);
+      }
+    }
+
+    @keyframes fadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      img {
+        max-width: 130px;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      a {
+        font-size: 1em;
+        padding: 14px 26px;
+        margin: 10px;
+      }
+    }
+    div{
+     padding: 95px;
+
+    }
+  </style>
+</head>
+<body>
+
+  <img src="butterflypng.png" class="butterfly" alt="butterfly" />
+  <img src="butterflypng.png" class="butterfly" alt="butterfly" />
+  <img src="butterflypng.png" class="butterfly" alt="butterfly" />
+
+  <div class="glass-box">
+  <img src="logo bg removed.png" alt="Earthy Essentials Logo" />
+
+  <i>Handcrafted with Heart, Rooted in Community</i>
+  <h2>ARE YOU A</h2>
+  <a href="seller.html" target="_blank">Seller</a>
+
+  <h2>OR</h2>
+  <a href="buyer.html" target="_blank">Buyer</a>
+  <br>
+   </div>
+ 
+   <footer>
+<div>
+  Made with ❤️ by Gaurav
+   </div>
+  </footer>
+
+</body>
+</html>
+

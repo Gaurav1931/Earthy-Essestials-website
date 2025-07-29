@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seller – Earthy Essentials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --primary: #7ca982;
+      --hover: #5d8668;
+      --light: #fdfdfb;
+      --text: #3d3b32;
+      --accent: #cfc1a3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body::before {
+  content: "";
+  position: fixed;
+  bottom: ;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('seller background.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.09; 
+  z-index: -1;
+}
+
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #f8f5f0, #e6ede5);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      padding: 100px 20px 60px;
+    }
+
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+    }
+
+    .logo img {
+      height:90px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+
+.support {
+  position: fixed;
+  bottom: -650px;
+  left: 700px;
+  background-color: var(--primary);
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.support:hover {
+  background-color: var(--hover);
+  transform: scale(1.1);
+}
+
+.support::after {
+  content: "🤝";
+}
+
+.profile {
+  position: fixed;
+  top: 10px;
+  left: 1425px;
+  background-color: var(--primary);
+  color: white;
+  padding: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile:hover {
+  background-color: var(--hover);
+  transform: scale(1.1);
+}
+
+.profile::after {
+  content: "👤";
+}
+    .card {
+      background-color: white;
+      padding: 70px;
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      max-width: 450px;
+      height: 630px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    h2 { 
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #4B412B;
+    }
+
+    label {
+      text-align: left;
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      background-color: #f1f9f3;
+    }
+
+ 
+    .submit-btn,
+    .support {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.4s ease, transform 0.2s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .submit-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--hover);
+      transform: scale(1.06);
+    }
+
+    .submit-btn:hover::after {
+      left: 0;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: #6d6657;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .support {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+      }
+
+      .logo img {
+        height: 45px;
+      }
+    }
+    .sky {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+  z-index: 10;
+  overflow: visible;
+}
+
+.plane {
+  position: absolute;
+  top: 10px;
+  left: -150px;
+  height: 60px;
+  animation: fly 10s linear infinite;
+  z-index: 11;
+}
+
+@keyframes fly {
+  0% {
+    left: -150px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.supply {
+  position: absolute;
+  top: 60px;
+  font-size: 20px;
+  animation: drop 2s ease-in forwards;
+}
+
+@keyframes drop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+  </style>
+</head>
+<body>
+<div class="sky">
+  <img src="aeroplane.png" class="plane" alt="Plane" />
+  <div id="supply-container"></div>
+</div>
+  <div class="logo">
+  <a href="Landing Page.html" target="_blank">
+    <img src="only logo.png" alt="Earthy Logo">
+  </a>
+</div>
+
+  <div class="support" onclick="alert('Reach us at support@earthyessentials1931.com')">
+  </div>
+  <div class="profile"onclick="alert('This is a Mock Profile Toggle bar')"></div>
+  <div class="card">
+    <img src="name logo.png" height="70" alt="logo"> <h2>Add Your Product</h2>
+    <form id="sellerForm"> <label for="productImage">Product Image</label>
+      <input type="file" id="productImage" accept="image/*" required>
+
+      <label for="sellerName">Seller Name</label>
+      <input type="text" id="sellerName" placeholder="e.g. xyz" required>
+
+      <label for="sellerEmail">Seller Email</label>
+      <input type="email" id="sellerEmail" placeholder="e.g. xyz@example.com" required>
+<label for="product type">Type</label>
+<input type="text" id="type" placeholder="e.g. food,Clothing,Handcrafted etc." required>
+
+ <a href="itemadded.html" target="_blank"></a>
+        <button type="submit"  class="submit-btn">Submit Product </button>
+    </form>
+  </div>
+
+  <footer>
+    Made with ❤️ by Gaurav
+  </footer>
+
+<div class="sky">
+  <img id="plane" src="aeroplane.png" class="plane" alt="Flying plane">
+</div>
+
+<script>
+  const plane = document.getElementById('plane');
+  const supplyIcons = ['📦', '🍃', '🌿', '❤️'];
+
+  function dropSupply() {
+    const rect = plane.getBoundingClientRect();
+    const supply = document.createElement('div');
+    supply.className = 'supply';
+    supply.textContent = supplyIcons[Math.floor(Math.random() * supplyIcons.length)];
+
+    supply.style.left = rect.left + rect.width / 2 + 'px';
+    supply.style.top = rect.top + rect.height + 'px';
+
+    supply.style.position = 'fixed';
+    document.body.appendChild(supply);
+
+    setTimeout(() => {
+      supply.remove();
+    }, 2000);
+  }
+
+  setInterval(dropSupply, 1000);
+  document.getElementById('sellerForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    window.location.href = 'itemadded.html'; 
+  });
+</script>
+
+</body>
+</html>
